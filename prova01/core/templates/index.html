@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+</head>
+<body>
+    <div>
+        <img width="280" height="auto" src="{% static 'o-alienista.jpg' %}" alt="">
+    </div>
+    <h1>O Alienista - Machado de Assis</h1>
+
+    <h2>Avalie o livro</h2>
+    <form action="{% url 'avaliacao' %}" method="post">
+        {% csrf_token %}
+        <p>
+            Nome:
+            <input type="text" name="nome">
+        </p>
+
+        <p>
+            Comentário:
+            <input type="text" name="comentario">
+        </p>
+
+        <p>
+            Nota:
+            <select name="nota">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </p>
+
+        <p>
+            <input type="submit" value="Avaliar">
+        </p>
+
+    </form>
+</body>
+</html>
